@@ -30,7 +30,7 @@ export default {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 16px;
+  margin-top: 24px;
 
   &::before {
     content: '';
@@ -55,6 +55,7 @@ export default {
     justify-content: center;
     align-items: center;
     z-index: 1;
+    text-transform: uppercase;
   }
 
   &:hover {

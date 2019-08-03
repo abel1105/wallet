@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Logo from '@/components/Logo';
+import Logo from '@/components/svg/Logo';
 export default {
   name: 'home',
   components: { Logo }

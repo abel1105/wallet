@@ -9,7 +9,9 @@
       <input type="password" v-model="password" />
       <label>PASSWORD</label>
     </div>
-    <Button text="LOGIN" />
+    <router-link :to="{ name: 'pay-checkout' }">
+      <Button text="LOGIN" />
+    </router-link>
     <span class="login-forget">forgot your password?</span>
   </div>
 </template>
@@ -30,12 +32,11 @@ export default {
 
 <style lang="scss" scoped>
 .login {
-  margin-top: 16.5px;
   display: flex;
   flex-direction: column;
 
   &-title {
-    margin: 8px 0;
+    margin-top: 24px;
     text-transform: uppercase;
     font-size: 20px;
     font-weight: bold;
@@ -45,7 +46,7 @@ export default {
     position: relative;
     display: flex;
     flex-direction: column;
-    margin: 8px 0;
+    margin-top: 16px;
 
     label {
       position: absolute;

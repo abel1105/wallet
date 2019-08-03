@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Logo from '@/components/Logo';
+import Logo from '@/components/svg/Logo';
 export default {
   name: 'box',
   components: { Logo },

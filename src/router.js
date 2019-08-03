@@ -2,7 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/views/Home.vue';
 import Pay from '@/views/Pay';
-import Login from '@/views/Login';
+import Login from '@/views/pay/Login';
+import Checkout from '@/views/pay/Checkout';
 
 Vue.use(Router);
 
@@ -23,6 +24,11 @@ export default new Router({
           path: 'login',
           name: 'pay-login',
           component: Login
+        },
+        {
+          path: 'checkout',
+          name: 'pay-checkout',
+          component: Checkout
         }
       ]
     }
