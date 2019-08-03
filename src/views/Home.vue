@@ -1,11 +1,13 @@
 <template>
   <div class="home">
-    <button class="home-button">
-      <span>
-        CHECK OUT WITH
-        <Logo />
-      </span>
-    </button>
+    <router-link :to="{ name: 'pay-login' }">
+      <button class="home-button">
+        <span>
+          CHECK OUT WITH
+          <Logo />
+        </span>
+      </button>
+    </router-link>
   </div>
 </template>
 
