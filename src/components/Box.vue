@@ -1,8 +1,8 @@
 <template>
   <div class="box">
-    <div class="box-title">
+    <div class="box-title" :class="{ 'box-title--center': hideDetail }">
       <Logo />
-      <div class="box-titleDetail">
+      <div v-if="!hideDetail" class="box-titleDetail">
         <span class="box-titleDetailCrypto">
           <md-icon>shopping_cart</md-icon>
           <span>{{ totalCrypto }} {{ asset }}</span>
@@ -19,6 +19,12 @@ import Logo from '@/components/svg/Logo';
 export default {
   name: 'box',
   components: { Logo },
+  props: {
+    hideDetail: {
+      type: Boolean,
+      default: false
+    }
+  },
   computed: {
     totalCrypto() {
       return this.$store.getters.getTotalCrypto;
@@ -41,6 +47,8 @@ export default {
   background: $white;
   padding: 24px 36px;
   border-radius: 8px;
+  margin: 0 auto;
+  overflow: hidden;
 
   &-title {
     color: $primary;
@@ -49,6 +57,11 @@ export default {
     align-items: center;
     border-bottom: solid 1px $border;
     padding-bottom: 24.5px;
+
+    &--center {
+      justify-content: center;
+      border-bottom: none;
+    }
 
     &Detail {
       display: flex;

@@ -64,6 +64,12 @@ export default new Vuex.Store({
   mutations: {
     changeAsset(state, asset) {
       state.asset = asset;
+    },
+    setPersonalData(state, data) {
+      state.personal = data;
+    },
+    changeGas(state, value) {
+      state.gas = value;
     }
   },
   actions: {}

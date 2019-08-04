@@ -1,26 +1,31 @@
 <template>
-  <div class="login">
-    <span class="login-title">pay with Crypto pay</span>
-    <div class="login-input">
-      <input type="email" v-model="email" />
-      <label>EMAIL</label>
-    </div>
-    <div class="login-input">
-      <input type="password" v-model="password" />
-      <label>PASSWORD</label>
-    </div>
-    <router-link :to="{ name: 'pay-checkout' }">
-      <Button text="LOGIN" />
-    </router-link>
-    <span class="login-forget">forgot your password?</span>
+  <div class="pay animated fadeInRightBig">
+    <Box>
+      <div class="login">
+        <span class="login-title">pay with Crypto pay</span>
+        <div class="login-input">
+          <input type="email" v-model="email" />
+          <label>EMAIL</label>
+        </div>
+        <div class="login-input">
+          <input type="password" v-model="password" />
+          <label>PASSWORD</label>
+        </div>
+        <router-link :to="{ name: 'checkout' }">
+          <Button text="LOGIN" />
+        </router-link>
+        <span class="login-forget">forgot your password?</span>
+      </div>
+    </Box>
   </div>
 </template>
 
 <script>
 import Button from '@/components/Button';
+import Box from '@/components/Box';
 export default {
   name: 'login',
-  components: { Button },
+  components: { Box, Button },
   data() {
     return {
       email: '',
@@ -31,6 +36,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.pay {
+  display: grid;
+  max-width: 920px;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  margin: 72px auto;
+}
 .login {
   display: flex;
   flex-direction: column;

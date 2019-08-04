@@ -11,5 +11,11 @@
   -moz-osx-font-smoothing: grayscale;
   background: $background;
   line-height: 1.35;
+
+  a:hover,
+  a:visited {
+    text-decoration: none;
+    color: initial;
+  }
 }
 </style>

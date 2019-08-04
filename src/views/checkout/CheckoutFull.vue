@@ -1,55 +1,57 @@
 <template>
-  <div class="checkout">
-    <div class="checkout-ship">
-      <div class="checkout-title">
+  <div class="checkoutFull">
+    <div class="checkoutFull-ship">
+      <div class="checkoutFull-title">
         <label>SHIP TO</label>
-        <span>EDIT</span>
+        <router-link :to="{ name: 'ship' }"><span>EDIT</span></router-link>
       </div>
-      <div class="checkout-box">
-        <div class="checkout-boxColumn">
-          <span class="checkout-boxTitle">{{ personal.fullName }}</span>
-          <span class="checkout-boxSubtitle">{{ personal.address }}</span>
+      <div class="checkoutFull-box">
+        <div class="checkoutFull-boxColumn">
+          <span class="checkoutFull-boxTitle">{{ personal.fullName }}</span>
+          <span class="checkoutFull-boxSubtitle">{{ personal.address }}</span>
         </div>
       </div>
     </div>
-    <div class="checkout-payment">
-      <div class="checkout-title">
+    <div class="checkoutFull-payment">
+      <div class="checkoutFull-title">
         <label>PAYMENT</label>
-        <span>EDIT</span>
+        <router-link :to="{ name: 'payment' }"><span>EDIT</span></router-link>
       </div>
-      <div class="checkout-asset">
+      <div class="checkoutFull-asset">
         <label>ASSET</label>
         <AssetButtonGroup />
       </div>
-      <div class="checkout-account">
+      <div class="checkoutFull-account">
         <label>ACCOUNT</label>
-        <div class="checkout-box">
-          <div class="checkout-boxColumn">
-            <span class="checkout-boxTitle">general account</span>
-            <span class="checkout-boxSubtitle">
+        <div class="checkoutFull-box">
+          <div class="checkoutFull-boxColumn">
+            <span class="checkoutFull-boxTitle">general account</span>
+            <span class="checkoutFull-boxSubtitle">
               Balance {{ currentCrypto }} {{ asset }}
             </span>
           </div>
-          <div class="checkout-boxColumn">
-            <span class="checkout-boxDollar">
+          <div class="checkoutFull-boxColumn">
+            <span class="checkoutFull-boxDollar">
               - {{ totalCrypto }} {{ asset }}
             </span>
           </div>
         </div>
       </div>
     </div>
-    <Button text="checkout now" />
+    <router-link :to="{ name: 'thanks' }">
+      <Button text="checkoutFull now" />
+    </router-link>
   </div>
 </template>
 
 <script>
 import AssetButtonGroup from '@/components/AssetButtonGroup';
+import Button from '@/components/Button';
 import { changeCoin } from '@/helpers/coins';
 import * as d3 from 'd3-format';
-import Button from '@/components/Button';
 
 export default {
-  name: 'checkout',
+  name: 'checkoutFull',
   components: { AssetButtonGroup, Button },
   computed: {
     personal() {
@@ -69,7 +71,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.checkout {
+.checkoutFull {
   display: flex;
   flex-direction: column;
 
@@ -89,6 +91,7 @@ export default {
       font-weight: bold;
       color: $primary;
       transition: color 0.1s ease-in-out;
+      cursor: pointer;
 
       &:hover {
         color: $primary_light;

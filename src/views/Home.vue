@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <router-link :to="{ name: 'pay-login' }">
-      <button class="home-button">
+    <router-link :to="{ name: 'login' }">
+      <button class="home-button animated pulse infinite">
         <span>
           CHECK OUT WITH
           <Logo />
@@ -28,6 +28,7 @@ export default {
   align-items: center;
 
   &-button {
+    cursor: pointer;
     position: relative;
     width: 350px;
     height: 70px;

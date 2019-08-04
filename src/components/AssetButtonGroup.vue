@@ -58,6 +58,7 @@ export default {
   height: 68px;
   border-radius: 4px;
   margin-top: 8px;
+  cursor: pointer;
 
   &-btn {
     width: 50%;

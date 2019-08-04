@@ -1,5 +1,9 @@
 <template>
-  <button class="button">
+  <button
+    class="button"
+    :class="{ 'button--active': isActive }"
+    @click="$emit('click')"
+  >
     <span>
       {{ text }}
     </span>
@@ -13,6 +17,10 @@ export default {
     text: {
       type: String,
       default: ''
+    },
+    isActive: {
+      type: Boolean,
+      default: true
     }
   }
 };
@@ -24,13 +32,14 @@ export default {
   width: 100%;
   height: 54px;
   border-radius: 4px;
-  border-style: none;
-  background: $primary;
-  color: $white;
+  background: $white;
+  color: $black;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   margin-top: 24px;
+  border: solid 1px $black;
+  transition: all 0.2s ease-in-out;
 
   &::before {
     content: '';
@@ -42,6 +51,37 @@ export default {
     height: 100%;
     background: transparent;
     transition: background 0.2s ease-in-out;
+  }
+
+  &:hover {
+    color: $primary_light;
+  }
+
+  &:active {
+    color: $primary;
+  }
+
+  &--active {
+    border: none;
+    background: $primary;
+    color: $white;
+
+    &:hover {
+      color: $white;
+
+      &::before {
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    &:active {
+      color: $white;
+      border-style: none;
+
+      &::before {
+        background: rgba(0, 0, 0, 0.2);
+      }
+    }
   }
 
   span {
@@ -56,20 +96,6 @@ export default {
     align-items: center;
     z-index: 1;
     text-transform: uppercase;
-  }
-
-  &:hover {
-    &::before {
-      background: rgba(255, 255, 255, 0.2);
-    }
-  }
-
-  &:active {
-    border-style: none;
-
-    &::before {
-      background: rgba(0, 0, 0, 0.2);
-    }
   }
 }
 </style>

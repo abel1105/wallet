@@ -1,9 +1,12 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/views/Home.vue';
-import Pay from '@/views/Pay';
-import Login from '@/views/pay/Login';
-import Checkout from '@/views/pay/Checkout';
+import Login from '@/views/Login';
+import Checkout from '@/views/Checkout';
+import Thanks from '@/views/Thanks';
+import CheckoutShip from '@/views/checkout/CheckoutShip';
+import CheckoutFull from '@/views/checkout/CheckoutFull';
+import CheckoutPayment from '@/views/checkout/CheckoutPayment';
 
 Vue.use(Router);
 
@@ -16,21 +19,35 @@ export default new Router({
       component: Home
     },
     {
-      path: '/pay',
-      name: 'pay',
-      component: Pay,
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/checkout',
+      component: Checkout,
       children: [
         {
-          path: 'login',
-          name: 'pay-login',
-          component: Login
+          path: '',
+          name: 'checkout',
+          component: CheckoutFull
         },
         {
-          path: 'checkout',
-          name: 'pay-checkout',
-          component: Checkout
+          path: 'ship',
+          name: 'ship',
+          component: CheckoutShip
+        },
+        {
+          path: 'payment',
+          name: 'payment',
+          component: CheckoutPayment
         }
       ]
+    },
+    {
+      path: '/thanks',
+      name: 'thanks',
+      component: Thanks
     }
   ]
 });
