@@ -39,7 +39,7 @@
       </div>
     </div>
     <router-link :to="{ name: 'thanks' }">
-      <Button text="checkoutFull now" />
+      <Button text="checkout now" />
     </router-link>
   </div>
 </template>
